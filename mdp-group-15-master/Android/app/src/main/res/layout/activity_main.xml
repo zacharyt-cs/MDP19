@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/_dynamic"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
+    <Button
+        android:id="@+id/connectBtn"
+        style="@android:style/Widget.Holo.Light.Button.Inset"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/border"
+        android:capitalize="none"
+        android:fontFamily="@font/amaranth"
+        android:shadowColor="@android:color/darker_gray"
+        android:text="Connect"
+        android:textColor="@color/darkblue"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/devicesFoundListView"
+        tools:ignore="DuplicateIds" />
+
+    <Button
+        android:id="@+id/forgetBtn"
+        style="@android:style/Widget.Holo.Light.Button.Inset"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/border"
+        android:capitalize="none"
+        android:fontFamily="@font/amaranth"
+        android:shadowColor="@android:color/darker_gray"
+        android:text="Forget"
+        android:textColor="@color/darkblue"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.744"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/devicesFoundListView"
+        tools:ignore="DuplicateIds" />
+
+    <ListView
+        android:id="@+id/pairedDevicesListView"
+        android:layout_width="603dp"
+        android:layout_height="263dp"
+        android:background="@drawable/border"
+        android:cacheColorHint="@color/darkblue"
+        android:foregroundTint="@color/turquoise"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pairedDevTitle"
+        tools:listitem="@android:layout/simple_expandable_list_item_2" />
+
+    <ListView
+        android:id="@+id/devicesFoundListView"
+        android:layout_width="614dp"
+        android:layout_height="286dp"
+        android:background="@drawable/border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/devDiscoveredTitle"
+        tools:listitem="@android:layout/simple_expandable_list_item_2" />
+
+    <Switch
+        android:id="@+id/bluetoothSwitch"
+        android:layout_width="518dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="76dp"
+        android:fontFamily="@font/amaranth"
+        android:text="Bluetooth"
+        android:textColor="@color/darkblue"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/devDiscoveredTitle"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="Devices Discovered"
+        android:textColor="@color/darkblue"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pairedDevicesListView" />
+
+    <TextView
+        android:id="@+id/pairedDevTitle"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/amaranth"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="Paired Devices"
+        android:textAllCaps="false"
+        android:textColor="@color/darkblue"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/pairedDevicesListView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bluetoothSwitch"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/searchBtn"
+        style="@android:style/Widget.Holo.Button.Inset"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/border"
+        android:fontFamily="@font/amaranth"
+        android:onClick="toggleButtonScan"
+        android:shadowColor="@color/darkblue"
+        android:text="@android:string/search_go"
+        android:textColor="@color/darkblue"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintStart_toEndOf="@+id/connectBtn"
+        app:layout_constraintTop_toBottomOf="@+id/devicesFoundListView" />
+
+    <ImageButton
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.032"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        app:srcCompat="@drawable/backbtn" />
+
+    <TextView
+        android:id="@+id/connStatusTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="Disconnected"
+        android:textSize="10sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bluetoothSwitch" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

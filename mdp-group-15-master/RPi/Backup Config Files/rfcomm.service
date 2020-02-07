@@ -1,0 +1,12 @@
+[Unit]
+Description=RFCOMM service
+After=bluetooth.service
+Requires=bluetooth.service
+
+[Service]
+#ExecStart=systemctl start /usr/bin/rfcomm
+#ExecStartPost=/usr/bin/rfcomm listen /dev/rfcomm4 3
+ExecStart=/usr/bin/rfcomm listen /dev/rfcomm4 3
+
+[Install]
+WantedBy=multi-user.target

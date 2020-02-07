@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="turquoise">#A9C6DE</color>
+    <color name="white">#FFFFFF</color>
+    <color name ="nude">#E6F8F9</color>
+    <color name ="darkblue">#38598B</color>
+    <color name ="newwhite">#FFFDFB</color>
+    <drawable name = "blue">#eaf5ff</drawable>
+</resources>

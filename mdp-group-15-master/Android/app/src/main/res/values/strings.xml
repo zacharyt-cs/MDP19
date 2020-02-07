@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="title_activity_message_page">MessagePage</string>
+    <string name="reconfigurable">Reconfigurable</string>
+    <string name="f1Mapping">f1Mapping</string>
+    <string name="f2Mapping">f2Mapping</string>
+</resources>
