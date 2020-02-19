@@ -49,6 +49,7 @@ public class ArenaActivity extends AppCompatActivity implements SensorEventListe
     ToggleButton waypointTB, sPTB, obstacleTB, autoTB, startButton, exploreToggleButton;
     Button clearButton, updateButton;
     TextView time;
+    TextView currentMode;
     Switch tiltSwitch;
     private GridMap gridMap;
     public static long exploreTimer;
@@ -202,14 +203,18 @@ public class ArenaActivity extends AppCompatActivity implements SensorEventListe
                 gridMap.setAllowSetObstacle(isChecked);
             }
         });
+
+        currentMode = findViewById(R.id.currentModeTextView);
         autoTB = findViewById(R.id.autoToggleButton);
         autoTB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (!isChecked) {
                     ToastUtil.showToast(getApplicationContext(), "Auto update mode");
+                    currentMode.setText("Auto");
                 } else {
                     ToastUtil.showToast(getApplicationContext(), "Manual update mode");
+                    currentMode.setText("Manual");
                 }
                 updateButton.setEnabled(isChecked);
                 gridMap.setAutoUpdate(!isChecked);

@@ -8,5 +8,6 @@
     <color name ="nude">#8FBC94</color>
     <color name ="darkblue">#56445D</color>
     <color name ="newwhite">#FFFDFB</color>
+    <color name="grey">#A2B9B1</color>
     <drawable name = "blue">#eaf5ff</drawable>
 </resources>
