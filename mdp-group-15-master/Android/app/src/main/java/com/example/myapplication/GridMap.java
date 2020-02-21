@@ -251,6 +251,7 @@ public class GridMap extends View {
         return false;
     }
 
+
     private void setWayPointCoor(int row, int col) {
         wayPointCoor[0] = row;
         wayPointCoor[1] = col;

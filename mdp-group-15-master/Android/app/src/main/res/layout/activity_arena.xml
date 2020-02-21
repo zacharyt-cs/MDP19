@@ -201,11 +201,12 @@
         android:layout_height="60dp"
         android:layout_marginTop="100dp"
         android:background="@android:color/transparent"
+        android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.338"
         app:layout_constraintStart_toEndOf="@+id/mapInformationView"
         app:layout_constraintTop_toBottomOf="@+id/startButton"
-        app:srcCompat="@drawable/upbutton" />
+        app:srcCompat="@drawable/forward" />
 
     <ImageButton
         android:id="@+id/downButton"
@@ -213,22 +214,24 @@
         android:layout_height="60dp"
         android:layout_marginTop="60dp"
         android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.338"
         app:layout_constraintStart_toEndOf="@+id/mapInformationView"
         app:layout_constraintTop_toBottomOf="@+id/upButton"
-        app:srcCompat="@drawable/downbutton" />
+        app:srcCompat="@drawable/backward" />
 
     <ImageButton
         android:id="@+id/rightButton"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.811"
         app:layout_constraintStart_toEndOf="@+id/mapInformationView"
         app:layout_constraintTop_toBottomOf="@+id/upButton"
-        app:srcCompat="@drawable/rightbutton" />
+        app:srcCompat="@drawable/clockwise" />
 
     <ImageButton
         android:id="@+id/leftButton"
@@ -236,9 +239,10 @@
         android:layout_height="60dp"
         android:layout_marginEnd="144dp"
         android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/upButton"
-        app:srcCompat="@drawable/leftbutton" />
+        app:srcCompat="@drawable/anti_clockwise" />
 
     <ToggleButton
         android:id="@+id/startButton"

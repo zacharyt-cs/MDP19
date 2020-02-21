@@ -7,8 +7,9 @@
         android:id="@+id/menu"/>
 
     <item
-        android:title="Bluetooth"
-        android:id="@+id/bluetooth"/>
+        android:id="@+id/bluetooth"
+        android:icon="@drawable/bluetooth"
+        android:title="Bluetooth" />
 
     <item
         android:title="Arena"

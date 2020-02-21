@@ -102,7 +102,7 @@ public class ArenaActivity extends AppCompatActivity implements SensorEventListe
                     return;
                 }
 
-
+                //if the there is no wall or obstacles in the front then send command
                 boolean okToSendCommand = gridMap.move(GridMap.MOVE_TYPE.FORWARD);
                 if (okToSendCommand) {
                     sendCommand(COMMAND_TYPE.FORWARD);
