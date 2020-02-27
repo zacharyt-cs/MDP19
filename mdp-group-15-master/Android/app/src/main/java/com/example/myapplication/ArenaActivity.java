@@ -110,6 +110,7 @@ public class ArenaActivity extends AppCompatActivity implements SensorEventListe
                 updateXYAxis();
             }
         });
+
         downButton = (ImageButton) findViewById(R.id.downButton);
         downButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,6 +126,7 @@ public class ArenaActivity extends AppCompatActivity implements SensorEventListe
                 updateXYAxis();
             }
         });
+
         leftButton = (ImageButton) findViewById(R.id.leftButton);
         leftButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,6 +140,7 @@ public class ArenaActivity extends AppCompatActivity implements SensorEventListe
                 updateXYAxis();
             }
         });
+
         rightButton = (ImageButton) findViewById(R.id.rightButton);
         rightButton.setOnClickListener(new View.OnClickListener() {
             @Override
