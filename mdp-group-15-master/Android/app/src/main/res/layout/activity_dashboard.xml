@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/turquoise"
+    android:background="@color/grey"
     tools:context=".Dashboard">
 
     <ImageView
@@ -31,7 +31,7 @@
         android:layout_width="0dp"
         android:layout_height="751dp"
         android:layout_marginTop="208dp"
-        android:background="@color/newwhite"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +40,7 @@
         <TextView
             android:id="@+id/arenaPage"
             android:layout_width="400dp"
-            android:layout_height="130dp"
+            android:layout_height="100dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/border3"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -48,12 +48,12 @@
             app:layout_constraintHorizontal_bias="0.562"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.722" />
+            app:layout_constraintVertical_bias="0.689" />
 
         <TextView
             android:id="@+id/btPage"
             android:layout_width="400dp"
-            android:layout_height="130dp"
+            android:layout_height="100dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/border3"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -66,7 +66,7 @@
         <TextView
             android:id="@+id/messagePage"
             android:layout_width="400dp"
-            android:layout_height="130dp"
+            android:layout_height="100dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/border3"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -78,20 +78,21 @@
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="259dp"
-            android:layout_height="68dp"
+            android:layout_width="119dp"
+            android:layout_height="65dp"
             app:layout_constraintBottom_toBottomOf="@+id/btPage"
             app:layout_constraintEnd_toEndOf="@+id/btPage"
-            app:layout_constraintHorizontal_bias="0.464"
+            app:layout_constraintHorizontal_bias="0.145"
             app:layout_constraintStart_toStartOf="@+id/btPage"
             app:layout_constraintTop_toTopOf="@+id/btPage"
-            app:layout_constraintVertical_bias="0.208"
+            app:layout_constraintVertical_bias="0.523"
             app:srcCompat="@drawable/bluetooth_icon" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
             android:fontFamily="casual"
             android:includeFontPadding="true"
             android:text="BLUETOOTH"
@@ -99,24 +100,25 @@
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/btPage"
-            app:layout_constraintHorizontal_bias="0.484"
-            app:layout_constraintStart_toStartOf="@+id/btPage"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+            app:layout_constraintHorizontal_bias="0.465"
+            app:layout_constraintStart_toEndOf="@+id/imageView4"
+            app:layout_constraintTop_toTopOf="@+id/btPage" />
 
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="61dp"
             android:layout_height="74dp"
+            android:layout_marginStart="72dp"
             android:layout_marginTop="12dp"
-            app:layout_constraintEnd_toEndOf="@+id/messagePage"
             app:layout_constraintStart_toStartOf="@+id/messagePage"
             app:layout_constraintTop_toTopOf="@+id/messagePage"
-            app:srcCompat="@drawable/chat_icon" />
+            app:srcCompat="@drawable/mail" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:fontFamily="casual"
             android:text="MESSAGES"
             android:textColor="@color/darkblue"
@@ -124,33 +126,33 @@
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/messagePage"
-            app:layout_constraintHorizontal_bias="0.475"
-            app:layout_constraintStart_toStartOf="@+id/messagePage"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+            app:layout_constraintHorizontal_bias="0.564"
+            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="@+id/messagePage" />
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="89dp"
             android:layout_height="79dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/arenaPage"
-            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintEnd_toStartOf="@+id/textView"
+            app:layout_constraintHorizontal_bias="0.414"
             app:layout_constraintStart_toStartOf="@+id/arenaPage"
             app:layout_constraintTop_toTopOf="@+id/arenaPage"
-            app:srcCompat="@drawable/stadium" />
+            app:srcCompat="@drawable/goal" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="84dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="casual"
             android:text="ARENA"
             android:textColor="@color/darkblue"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/arenaPage"
-            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintHorizontal_bias="0.714"
             app:layout_constraintStart_toStartOf="@+id/arenaPage"
             app:layout_constraintTop_toTopOf="@+id/arenaPage" />
 

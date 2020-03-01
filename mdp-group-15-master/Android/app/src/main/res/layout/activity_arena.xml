@@ -5,75 +5,76 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ArenaActivity">
+
+    <TextView
+        android:id="@+id/obstacle_legend4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="casual"
+        android:text="COLOR LEGEND:"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clearButton" />
+
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
+        layout="@layout/toolbar" />
 
     <view
         android:id="@+id/mapInformationView"
         class="com.example.myapplication.GridMap"
-        android:layout_width="414dp"
-        android:layout_height="526dp"
-        android:layout_marginTop="56dp"
+        android:layout_width="402dp"
+        android:layout_height="519dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
         android:id="@+id/statusLbl"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_width="186dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
         android:background="@android:color/transparent"
-        android:fontFamily="@font/amaranth"
+        android:fontFamily="casual"
         android:gravity="center"
         android:text="Robot status"
         android:textColor="@color/darkblue"
-        android:textSize="14sp"
+        android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mapInformationView" />
+        app:layout_constraintStart_toEndOf="@+id/mapInformationView"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
         android:id="@+id/robotStatusTxt"
-        android:layout_width="352dp"
-        android:layout_height="225dp"
-        android:layout_marginStart="24dp"
+        android:layout_width="184dp"
+        android:layout_height="215dp"
+        android:layout_marginStart="408dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/border"
         android:padding="5dp"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/statusLbl" />
 
-    <ImageButton
-        android:id="@+id/timerReset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:background="@android:color/transparent"
-        app:layout_constraintStart_toEndOf="@+id/time"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:srcCompat="@drawable/reset" />
-
     <TextView
-        android:id="@+id/time"
+        android:id="@+id/xAxisTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/amaranth"
-        android:text="00:00"
-        android:textColor="@color/darkblue"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        android:text="0"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/timerTextView"
+        app:layout_constraintEnd_toStartOf="@+id/ycoordtext"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
         android:id="@+id/xcoordtext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:fontFamily="@font/amaranth"
+        android:layout_marginTop="16dp"
+        android:fontFamily="casual"
         android:text="X: "
         android:textColor="@color/darkblue"
         android:textSize="18sp"
@@ -82,33 +83,11 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
-        android:id="@+id/xAxisTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="8dp"
-        android:text="0"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/ycoordtext"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-    <TextView
-        android:id="@+id/yAxisTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="204dp"
-        android:text="0"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-    <TextView
         android:id="@+id/ycoordtext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:fontFamily="@font/amaranth"
+        android:layout_marginTop="16dp"
+        android:fontFamily="casual"
         android:text="Y: "
         android:textColor="@color/darkblue"
         android:textSize="18sp"
@@ -116,107 +95,88 @@
         app:layout_constraintEnd_toStartOf="@+id/yAxisTextView"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-    <ToggleButton
-        android:id="@+id/waypointToggleButton"
-        android:layout_width="160dp"
-        android:layout_height="40dp"
+    <TextView
+        android:id="@+id/yAxisTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@drawable/change_color"
-        android:fontFamily="@font/amaranth"
-        android:shadowColor="@color/newwhite"
-        android:textColor="@color/newwhite"
-        android:textOff="Waypoint"
-        android:textOn="Cancel"
-        android:textSize="14sp"
+        android:layout_marginEnd="200dp"
+        android:text="0"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mapInformationView"
-        app:layout_constraintTop_toBottomOf="@+id/sPToggleButton" />
-
-    <ToggleButton
-        android:id="@+id/exploreToggleButton"
-        android:layout_width="160dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/border5"
-        android:fontFamily="@font/amaranth"
-        android:shadowColor="@color/newwhite"
-        android:textColor="@color/newwhite"
-        android:textOff="Explore"
-        android:textOn="Fastest"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mapInformationView"
-        app:layout_constraintTop_toBottomOf="@+id/clearButton" />
-
-    <ToggleButton
-        android:id="@+id/autoToggleButton"
-        android:layout_width="160dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/change_color"
-        android:fontFamily="@font/amaranth"
-        android:shadowColor="@color/newwhite"
-        android:textColor="@color/newwhite"
-        android:textOff="To Manual"
-        android:textOn="To Auto"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mapInformationView"
-        app:layout_constraintTop_toBottomOf="@+id/waypointToggleButton" />
-
-    <ToggleButton
-        android:id="@+id/sPToggleButton"
-        android:layout_width="160dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="104dp"
-        android:background="@drawable/change_color"
-        android:fontFamily="@font/amaranth"
-        android:text="ToggleButton"
-        android:textColor="@color/white"
-        android:textOff="Start Point"
-        android:textOn="Cancel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mapInformationView"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-    <ToggleButton
-        android:id="@+id/obstacleToggleButton"
-        android:layout_width="160dp"
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:fontFamily="casual"
+        android:text="00:00"
+        android:textColor="@color/darkblue"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/timerReset"
+        app:layout_constraintStart_toEndOf="@+id/timerTextView"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/timerReset"
+        android:layout_width="47dp"
         android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/change_color"
-        android:fontFamily="@font/amaranth"
-        android:text="ToggleButton"
-        android:textColor="@color/white"
-        android:textOff="Obstacle"
-        android:textOn="Cancel"
+        android:layout_marginStart="32dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintStart_toEndOf="@+id/time"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:srcCompat="@drawable/reset" />
+
+    <TextView
+        android:id="@+id/timerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:fontFamily="casual"
+        android:text="Timer"
+        android:textColor="@color/darkblue"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/mapInformationView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <ImageButton
+        android:id="@+id/leftButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="132dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mapInformationView"
-        app:layout_constraintTop_toBottomOf="@+id/updateButton" />
+        app:layout_constraintTop_toBottomOf="@+id/upButton"
+        app:srcCompat="@drawable/anti_clockwise" />
 
     <ImageButton
         android:id="@+id/upButton"
         style="@android:style/Widget.Holo.ImageButton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="100dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="20dp"
         android:background="@android:color/transparent"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.338"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toEndOf="@+id/mapInformationView"
-        app:layout_constraintTop_toBottomOf="@+id/startButton"
+        app:layout_constraintTop_toBottomOf="@+id/robotStatusTxt"
         app:srcCompat="@drawable/forward" />
 
     <ImageButton
         android:id="@+id/downButton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="52dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.338"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toEndOf="@+id/mapInformationView"
         app:layout_constraintTop_toBottomOf="@+id/upButton"
         app:srcCompat="@drawable/backward" />
@@ -228,62 +188,106 @@
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.811"
+        app:layout_constraintHorizontal_bias="0.935"
         app:layout_constraintStart_toEndOf="@+id/mapInformationView"
         app:layout_constraintTop_toBottomOf="@+id/upButton"
         app:srcCompat="@drawable/clockwise" />
 
-    <ImageButton
-        android:id="@+id/leftButton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="144dp"
-        android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/upButton"
-        app:srcCompat="@drawable/anti_clockwise" />
-
-    <ToggleButton
-        android:id="@+id/startButton"
-        style="@style/toggleButton"
-        android:layout_width="77dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/ic_toggle_bg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toEndOf="@+id/mapInformationView"
-        app:layout_constraintTop_toBottomOf="@+id/exploreToggleButton"
-        app:srcCompat="@drawable/poweron" />
-
     <Button
         android:id="@+id/clearButton"
-        android:layout_width="160dp"
+        android:layout_width="368dp"
         android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/border5"
-        android:fontFamily="@font/amaranth"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/border"
+        android:fontFamily="casual"
         android:shadowColor="@color/white"
         android:text="Clear"
-        android:textColor="@color/white"
+        android:textColor="@color/darkblue"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mapInformationView"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/obstacleToggleButton" />
+
+    <ToggleButton
+        android:id="@+id/sPToggleButton"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/change_color"
+        android:checked="false"
+        android:fontFamily="casual"
+        android:text="ToggleButton"
+        android:textColor="@color/change_textcolor"
+        android:textOff="Start Point"
+        android:textOn="Cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.036"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectSettingTextView" />
+
+    <ToggleButton
+        android:id="@+id/waypointToggleButton"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/change_color"
+        android:fontFamily="casual"
+        android:shadowColor="@color/newwhite"
+        android:textColor="@color/change_textcolor"
+        android:textOff="Waypoint"
+        android:textOn="Cancel"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.036"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sPToggleButton" />
 
     <Button
         android:id="@+id/updateButton"
         android:layout_width="160dp"
         android:layout_height="40dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="220dp"
         android:background="@drawable/change_update_enable"
-        android:fontFamily="@font/amaranth"
-        android:shadowColor="@color/white"
+        android:enabled="false"
+        android:fontFamily="casual"
+        android:shadowColor="@color/darkblue"
         android:text="update"
-        android:textColor="@color/white"
+        android:textColor="@color/change_textcolor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/mapInformationView"
-        app:layout_constraintTop_toBottomOf="@+id/autoToggleButton" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/sPToggleButton"
+        app:layout_constraintTop_toBottomOf="@+id/tiltSwitch" />
+
+    <ToggleButton
+        android:id="@+id/obstacleToggleButton"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="220dp"
+        android:background="@drawable/change_color"
+        android:fontFamily="casual"
+        android:text="ToggleButton"
+        android:textColor="@color/change_textcolor"
+        android:textOff="Obstacle"
+        android:textOn="Cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updateButton" />
+
+    <TextView
+        android:id="@+id/selectSettingTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="casual"
+        android:text="Select Settings:"
+        android:textColor="@color/darkblue"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/tiltSwitch"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapInformationView" />
 
     <ImageButton
         android:id="@+id/backBtn"
@@ -297,63 +301,134 @@
         app:layout_constraintTop_toTopOf="@+id/toolbar"
         app:srcCompat="@drawable/backbtn" />
 
-    <TextView
-        android:id="@+id/timerTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/amaranth"
-        android:text="Timer"
-        android:textColor="@color/darkblue"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
     <Switch
         android:id="@+id/tiltSwitch"
         android:layout_width="96dp"
         android:layout_height="20dp"
-        android:layout_marginTop="64dp"
-        android:fontFamily="@font/amaranth"
+        android:layout_marginTop="568dp"
+        android:layout_marginEnd="260dp"
+        android:fontFamily="casual"
         android:text="Tilt"
         android:textColor="@color/darkblue"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.462"
-        app:layout_constraintStart_toEndOf="@+id/mapInformationView"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
         android:id="@+id/modeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/amaranth"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="112dp"
+        android:fontFamily="casual"
         android:text="Mode:"
         android:textColor="@color/darkblue"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/robotStatusTxt"
-        app:layout_constraintTop_toBottomOf="@+id/startButton" />
+        app:layout_constraintHorizontal_bias="0.976"
+        app:layout_constraintStart_toEndOf="@+id/tiltSwitch"
+        app:layout_constraintTop_toBottomOf="@+id/downButton" />
 
     <TextView
         android:id="@+id/currentModeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="casual"
         android:text="TBD"
         android:textColor="@color/darkblue"
         android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/upButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
+        app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toEndOf="@+id/modeTextView"
-        app:layout_constraintTop_toBottomOf="@+id/startButton"
-        app:layout_constraintVertical_bias="0.617" />
+        app:layout_constraintTop_toBottomOf="@+id/downButton" />
+
+    <ToggleButton
+        android:id="@+id/autoToggleButton"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/change_color"
+        android:fontFamily="casual"
+        android:shadowColor="@color/newwhite"
+        android:textColor="@color/change_textcolor"
+        android:textOff="To Manual"
+        android:textOn="To Auto"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/modeTextView" />
+
+    <ToggleButton
+        android:id="@+id/exploreToggleButton"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/change_color"
+        android:fontFamily="casual"
+        android:shadowColor="@color/newwhite"
+        android:textColor="@color/change_textcolor"
+        android:textOff="Explore"
+        android:textOn="Fastest"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/autoToggleButton" />
+
+    <ToggleButton
+        android:id="@+id/startButton"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/change_color"
+        android:checked="false"
+        android:fontFamily="casual"
+        android:text="ToggleButton"
+        android:textColor="@color/change_textcolor"
+        android:textOff="Start"
+        android:textOn="Stop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exploreToggleButton" />
+
+    <TextView
+        android:id="@+id/obstacle_legend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="11dp"
+        android:fontFamily="casual"
+        android:text="OBSTACLE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/obstacle_legend4"
+        app:layout_constraintTop_toBottomOf="@+id/clearButton" />
+
+    <TextView
+        android:id="@+id/obstacle_legend3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
+        android:fontFamily="casual"
+        android:text="EXPLORED"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/obstacle_legend2"
+        app:layout_constraintTop_toBottomOf="@+id/clearButton"
+        app:layout_constraintVertical_bias="0.504" />
+
+    <TextView
+        android:id="@+id/obstacle_legend2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:fontFamily="casual"
+        android:text="WAYPOINT"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/obstacle_legend"
+        app:layout_constraintTop_toBottomOf="@+id/clearButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

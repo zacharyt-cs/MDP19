@@ -64,10 +64,10 @@ public class GridMap extends View {
     private void initColor() {
         gridTypeColorMap.put(GRID_TYPE.UNEXPLORED, getPaintWithColor(Color.GRAY));
         gridTypeColorMap.put(GRID_TYPE.EXPLORED, getPaintWithColor(Color.LTGRAY));
-        gridTypeColorMap.put(GRID_TYPE.OBSTACLE, getPaintWithColor(Color.RED));
-        gridTypeColorMap.put(GRID_TYPE.WAY_POINT, getPaintWithColor(Color.YELLOW));
-        gridTypeColorMap.put(GRID_TYPE.ROBOT, getPaintWithColor(Color.CYAN));
-        gridTypeColorMap.put(GRID_TYPE.ROBOT_SPACE, getPaintWithColor(Color.DKGRAY));
+        gridTypeColorMap.put(GRID_TYPE.OBSTACLE, getPaintWithColor(getResources().getColor(R.color.red)));
+        gridTypeColorMap.put(GRID_TYPE.WAY_POINT, getPaintWithColor(getResources().getColor(R.color.yellow)));
+        gridTypeColorMap.put(GRID_TYPE.ROBOT, getPaintWithColor(getResources().getColor(R.color.turquoise)));
+        gridTypeColorMap.put(GRID_TYPE.ROBOT_SPACE, getPaintWithColor(Color.LTGRAY));
         gridTypeColorMap.put(GRID_TYPE.FASTEST_PATH, getPaintWithColor(Color.GREEN));
     }
 

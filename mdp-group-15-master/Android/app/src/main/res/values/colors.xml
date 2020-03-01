@@ -9,5 +9,8 @@
     <color name ="darkblue">#56445D</color>
     <color name ="newwhite">#FFFDFB</color>
     <color name="grey">#A2B9B1</color>
+    <color name="orange">#141A46</color>
+    <color name = "red">#F96167</color>
+    <color name="yellow">#FCE77D</color>
     <drawable name = "blue">#eaf5ff</drawable>
 </resources>
