@@ -66,9 +66,9 @@ public class GridMap extends View {
         gridTypeColorMap.put(GRID_TYPE.EXPLORED, getPaintWithColor(Color.LTGRAY));
         gridTypeColorMap.put(GRID_TYPE.OBSTACLE, getPaintWithColor(getResources().getColor(R.color.red)));
         gridTypeColorMap.put(GRID_TYPE.WAY_POINT, getPaintWithColor(getResources().getColor(R.color.yellow)));
-        gridTypeColorMap.put(GRID_TYPE.ROBOT, getPaintWithColor(getResources().getColor(R.color.turquoise)));
-        gridTypeColorMap.put(GRID_TYPE.ROBOT_SPACE, getPaintWithColor(Color.LTGRAY));
-        gridTypeColorMap.put(GRID_TYPE.FASTEST_PATH, getPaintWithColor(Color.GREEN));
+        gridTypeColorMap.put(GRID_TYPE.ROBOT, getPaintWithColor(Color.CYAN));
+        gridTypeColorMap.put(GRID_TYPE.ROBOT_SPACE, getPaintWithColor(Color.DKGRAY));
+        gridTypeColorMap.put(GRID_TYPE.FASTEST_PATH, getPaintWithColor(getResources().getColor((R.color.nude))));
     }
 
     @Override
@@ -363,7 +363,7 @@ public class GridMap extends View {
 
             Grid grid = grids[row][col];
 
-            canvas.drawRect(grid.xStart, grid.yStart, grid.xEnd, grid.yEnd, getPaintWithColor(Color.RED));
+            canvas.drawRect(grid.xStart, grid.yStart, grid.xEnd, grid.yEnd, getPaintWithColor(getResources().getColor(R.color.orange)));
             canvas.drawText(Integer.toString(img[2]), grid.xStart + (gridSize / 3f), grid.yStart + (gridSize / 1.5f), getPaintWithColor(Color.WHITE));
         }
     }

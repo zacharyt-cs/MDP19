@@ -8,9 +8,12 @@
     <color name ="nude">#8FBC94</color>
     <color name ="darkblue">#56445D</color>
     <color name ="newwhite">#FFFDFB</color>
-    <color name="grey">#A2B9B1</color>
+    <color name="grey">#6557445F</color>
     <color name="orange">#141A46</color>
     <color name = "red">#F96167</color>
     <color name="yellow">#FCE77D</color>
+    <color name="grey_green">#85548687</color>
+<!--    <color name="blue">#2C9FAE</color>-->
+    <color name="ltgray">#FFCCCCCC</color>
     <drawable name = "blue">#eaf5ff</drawable>
 </resources>

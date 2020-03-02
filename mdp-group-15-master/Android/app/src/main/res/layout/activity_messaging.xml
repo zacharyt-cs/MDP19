@@ -7,173 +7,180 @@
     android:layout_height="match_parent"
     tools:context=".MessagingActivity">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
-
-    <Button
-        android:id="@+id/f2Btn"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/inputText"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="9dp"
-        android:layout_toEndOf="@+id/f1"
-        android:background="@drawable/border"
-        android:fontFamily="@font/amaranth"
-        android:text="F2"
-        android:textColor="@color/darkblue"
-        android:textSize="14sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/reconfigBtn"
-        style="@android:style/Widget.Holo.Button.Inset"
-        android:layout_width="102dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/inputText"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="10dp"
-        android:layout_toEndOf="@+id/f2Btn"
-        android:background="@drawable/border"
-        android:fontFamily="@font/amaranth"
-        android:text="Reconfigure"
-        android:textColor="@color/darkblue"
-        android:textSize="14sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/sendBtn"
-        style="@android:style/Widget.Holo.Button.Inset"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_below="@+id/inputText"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:layout_toStartOf="@+id/clearBtn"
-        android:background="@drawable/border"
-        android:fontFamily="@font/amaranth"
-        android:text="Send"
-        android:textColor="@color/darkblue"
-        android:textSize="14sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/clearBtn"
-        style="@android:style/Widget.Holo.Button.Inset"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_below="@+id/inputText"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="11dp"
-        android:background="@drawable/border"
-        android:fontFamily="@font/amaranth"
-        android:text="Clear"
-        android:textColor="@color/darkblue"
-        android:textSize="14sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/f1"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/inputText"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/border"
-        android:fontFamily="@font/amaranth"
-        android:text="F1"
-        android:textColor="@color/darkblue"
-        android:textSize="14sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/sentTextView"
-        android:layout_width="478dp"
-        android:layout_height="150dp"
-        android:layout_below="@id/sentTitle"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/border"
-        android:padding="5dp"
-        android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/sentTitle"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/receivedTextView"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="18dp"
-        android:height="37dp"
-        android:fontFamily="@font/amaranth"
-        android:gravity="center"
-        android:text="Messages Sent"
-        android:textColor="@color/darkblue"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/receivedTextView"
-        android:layout_width="478dp"
-        android:layout_height="160dp"
-        android:layout_below="@id/receivedTitle"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="59dp"
-        android:background="@drawable/border"
-        android:padding="5dp"
-        android:textSize="14sp" />
+        <TextView
+            android:id="@+id/sentTitle"
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:height="37dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="Messages Sent"
+            android:textColor="@color/darkblue"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.784"
+            app:layout_constraintStart_toEndOf="@+id/receivedTitle"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-    <TextView
-        android:id="@+id/receivedTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="88dp"
-        android:height="37dp"
-        android:fontFamily="@font/amaranth"
-        android:gravity="center"
-        android:text="Messages Received"
-        android:textColor="@color/darkblue"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/receivedTextView"
+            android:layout_width="260dp"
+            android:layout_height="300dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/border"
+            android:padding="5dp"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/receivedTitle" />
 
-    <EditText
-        android:id="@+id/inputText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/sentTextView"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="Type your text here"
-        android:shadowColor="@color/darkblue"
-        android:textColor="@color/darkblue"
-        android:textColorHighlight="@color/darkblue"
-        android:textColorLink="@color/darkblue" />
+        <Button
+            android:id="@+id/clearBtn"
+            style="@android:style/Widget.Holo.Button.Inset"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/border"
+            android:fontFamily="casual"
+            android:text="Clear"
+            android:textColor="@color/darkblue"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputText" />
 
-    <ImageButton
-        android:id="@+id/backBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/toolbar"
-        android:layout_alignTop="@+id/toolbar"
-        android:layout_alignEnd="@+id/toolbar"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="554dp"
-        android:backgroundTint="@android:color/transparent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.032"
-        app:layout_constraintStart_toStartOf="@+id/toolbar"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:srcCompat="@drawable/backbtn" />
+        <Button
+            android:id="@+id/f1"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/border"
+            android:fontFamily="casual"
+            android:text="F1"
+            android:textColor="@color/darkblue"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputText" />
+
+        <Button
+            android:id="@+id/f2Btn"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/border"
+            android:fontFamily="casual"
+            android:text="F2"
+            android:textColor="@color/darkblue"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/f1"
+            app:layout_constraintTop_toBottomOf="@+id/inputText" />
+
+        <Button
+            android:id="@+id/sendBtn"
+            style="@android:style/Widget.Holo.Button.Inset"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/border"
+            android:fontFamily="casual"
+            android:text="Send"
+            android:textColor="@color/darkblue"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/clearBtn"
+            app:layout_constraintTop_toBottomOf="@+id/inputText" />
+
+        <Button
+            android:id="@+id/reconfigBtn"
+            style="@android:style/Widget.Holo.Button.Inset"
+            android:layout_width="102dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/border"
+            android:fontFamily="casual"
+            android:text="Reconfigure"
+            android:textColor="@color/darkblue"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/f2Btn"
+            app:layout_constraintTop_toBottomOf="@+id/inputText" />
+
+        <TextView
+            android:id="@+id/receivedTitle"
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:height="37dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="Messages Received"
+            android:textColor="@color/darkblue"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="554dp"
+            android:backgroundTint="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.032"
+            app:layout_constraintStart_toStartOf="@+id/toolbar"
+            app:layout_constraintTop_toTopOf="@+id/toolbar"
+            app:srcCompat="@drawable/backbtn" />
+
+        <EditText
+            android:id="@+id/inputText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="Type your text here"
+            android:shadowColor="@color/darkblue"
+            android:textColor="@color/darkblue"
+            android:textColorHighlight="@color/darkblue"
+            android:textColorLink="@color/darkblue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sentTextView"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/sentTextView"
+            android:layout_width="260dp"
+            android:layout_height="300dp"
+            android:layout_marginStart="84dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/border"
+            android:padding="5dp"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.906"
+            app:layout_constraintStart_toEndOf="@+id/receivedTextView"
+            app:layout_constraintTop_toBottomOf="@+id/sentTitle" />
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </RelativeLayout>
