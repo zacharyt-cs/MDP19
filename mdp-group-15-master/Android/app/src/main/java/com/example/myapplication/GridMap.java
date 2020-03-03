@@ -128,14 +128,14 @@ public class GridMap extends View {
                     String eBitIndex = new BigInteger(exploredStr, 16).toString(2);
                     String oBitIndex = new BigInteger(obstacleStr, 16).toString(2);
 
-                    eBitIndex = eBitIndex.substring(2, eBitIndex.length() - 2);
-                    oBitIndex = String.format("%" + obstacleStr.length() * 4 + "s", oBitIndex).replace(' ', '0');
+                    eBitIndex = eBitIndex.substring(2, eBitIndex.length() - 2);                     //remove bit padding
+                    oBitIndex = String.format("%" + obstacleStr.length() * 4 + "s", oBitIndex).replace(' ', '0');       //obstacleStr = 75
                     StringBuilder sb = new StringBuilder(eBitIndex);
                     int j = 0;
                     for (int i = 0; i < eBitIndex.length(); i++) {
-                        if (eBitIndex.charAt(i) == '1') {
-                            if (oBitIndex.charAt(j) == '0') {
-                                sb.setCharAt(i, '0');
+                        if (eBitIndex.charAt(i) == '1') {       // if cell explored = 1
+                            if (oBitIndex.charAt(j) == '0') {   // and if cell obstacle = 0
+                                sb.setCharAt(i, '0');       // then cell is free space
                             }
                             j++;
                         }
@@ -143,7 +143,8 @@ public class GridMap extends View {
                     String bitIndex = sb.toString();
                     bitIndex = String.format("%300s", bitIndex).replace(' ', '0');
                     for (int i = 0; i < bitIndex.length(); i++) {
-                        int x = 19 - (i / 15);
+                        //int x = 19 - (i / 15);
+                        int x = (i / 15);
                         int y = (i % 15) + 1;
 
                         if (bitIndex.toCharArray()[i] == '1') {
@@ -178,7 +179,7 @@ public class GridMap extends View {
                         }
                         robotCoor[1] = getRowCoor(robotCoor[1]);
                         this.translateRobotCoorFromXYToRowCol();
-                        //this.translateCoorFromXYToRowCol(robotCoor);
+                        //this.translateCoorFromXYToRowCol(robotCoor);   commented by default
                     }
                 }
                 if (mapState.get("imgs") != null && mapState.get("imgs").isArray()) {

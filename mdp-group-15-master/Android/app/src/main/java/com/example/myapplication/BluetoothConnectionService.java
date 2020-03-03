@@ -20,9 +20,9 @@ import static android.content.ContentValues.TAG;
 
 public class BluetoothConnectionService {
     MainActivity mMainActivity;
-    private static final String appName = "MDP_Group_15";
+    private static final String appName = "MDP_Group_19";
     private static BluetoothConnectionService instance;
-    private static final UUID myUUID = UUID.fromString("7121A3C0-2CDE-4BED-8253-E3F6C8BCBCAF");
+    private static final UUID myUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
     private final BluetoothAdapter mBluetoothAdapter;
     Context mContext;
@@ -152,6 +152,7 @@ public class BluetoothConnectionService {
             mConnectThread.cancel();
             mConnectThread=null;
         }
+
         if(mInsecureAcceptThread == null){
             mInsecureAcceptThread = new AcceptThread();
             mInsecureAcceptThread.start();
@@ -217,7 +218,13 @@ public class BluetoothConnectionService {
                     connectionStatus.putExtra("Device", mDevice);
                     LocalBroadcastManager.getInstance(mContext).sendBroadcast(connectionStatus);
                     BluetoothConnectionStatus = false;
-
+//                    try {
+//                        inStream.close();
+//                        outStream.close();
+//                    }
+//                    catch (IOException streamException){
+//                        Log.e(TAG, streamException.getMessage());
+//                    }
                     break;
                 }
             }

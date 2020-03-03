@@ -13,6 +13,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
@@ -379,7 +380,9 @@ public class MainActivity extends AppCompatActivity {
     private BroadcastReceiver mBroadcastReceiver5 = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
+            // Get the BluetoothDevice object from the Intent
             BluetoothDevice mDevice = intent.getParcelableExtra("Device");
+
             String status = intent.getStringExtra("Status");
             sharedPreferences = getApplicationContext().getSharedPreferences("Shared Preferences", Context.MODE_PRIVATE);
             editor = sharedPreferences.edit();
@@ -401,6 +404,7 @@ public class MainActivity extends AppCompatActivity {
                 mBluetoothConnection = new BluetoothConnectionService(MainActivity.this);
                 mBluetoothConnection.startAcceptThread();
 
+
                 sharedPreferences = getApplicationContext().getSharedPreferences("Shared Preferences", Context.MODE_PRIVATE);
                 editor = sharedPreferences.edit();
                 editor.putString("connStatus", "Disconnected");
@@ -408,17 +412,12 @@ public class MainActivity extends AppCompatActivity {
                 connStatusTextView.setText("Disconnected");
                 editor.commit();
 
-                try {
-                    myDialog.show();
-                } catch (Exception e) {
-                    Log.d(TAG, "BluetoothPopUp: mBroadcastReceiver5 Dialog show failure");
-                }
-
-
+                myDialog.show();
             }
             editor.commit();
         }
     };
+
 
     public void startConnection() {
         startBTConnection(mBTDevice, myUUID);
@@ -471,6 +470,28 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+//    @Override
+//    protected void onPause(){
+//        super.onPause();
+//        try{
+//            LocalBroadcastManager.getInstance(this).unregisterReceiver(mBroadcastReceiver5);
+//        } catch(IllegalArgumentException e){
+//            e.printStackTrace();
+//        }
+//    }
+
+//    @Override
+//    protected void onResume(){
+//        super.onResume();
+//        try{
+//            //Broadcasts when bluetooth state changes (connected, disconnected etc) custom receiver
+//            IntentFilter filter2 = new IntentFilter("ConnectionStatus");
+//            LocalBroadcastManager.getInstance(this).registerReceiver(mBroadcastReceiver5, filter2);
+//        } catch(IllegalArgumentException e){
+//            e.printStackTrace();
+//        }
+//    }
 
     @Override
     public void finish() {
