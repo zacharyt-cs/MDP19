@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="direction_arrays">
+        <item>Right</item>
+        <item>Down</item>
+        <item>Left</item>
+        <item>Up</item>
+
+    </string-array>
+</resources>

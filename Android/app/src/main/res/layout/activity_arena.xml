@@ -308,7 +308,7 @@
         android:layout_width="96dp"
         android:layout_height="30dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="260dp"
+        android:layout_marginEnd="192dp"
         android:fontFamily="casual"
         android:text="Tilt"
         android:textColor="@color/darkblue"
@@ -472,6 +472,18 @@
         android:background="@color/yellow"
         app:layout_constraintStart_toEndOf="@+id/obstacle_legend"
         app:layout_constraintTop_toBottomOf="@+id/clearButton" />
+
+    <Spinner
+        android:id="@+id/directionSpinner"
+        android:layout_width="121dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="16dp"
+        android:entries="@array/direction_arrays"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toTopOf="@+id/waypointToggleButton"
+        app:layout_constraintStart_toEndOf="@+id/selectSettingTextView"
+        app:layout_constraintTop_toBottomOf="@+id/mapInformationView"
+        app:layout_constraintVertical_bias="0.285" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

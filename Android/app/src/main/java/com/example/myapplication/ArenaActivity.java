@@ -27,6 +27,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,10 +38,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.w3c.dom.Text;
 
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+
 public class ArenaActivity extends AppCompatActivity implements SensorEventListener {
     private String TAG = "ARENALOGTAG";
     private final String FROMANDROID = "\"from\":\"Android\",";
-
+    String[] directions = {"RIGHT","DOWN","LEFT","UP"};
     TextView robotStatus;
     Toolbar toolbar;
     TextView mTitle, xAxisTextView, yAxisTextView;
@@ -51,6 +56,18 @@ public class ArenaActivity extends AppCompatActivity implements SensorEventListe
     TextView time;
     TextView currentMode;
     Switch tiltSwitch;
+    Spinner directionSpinner;
+    RobotDirection initDirection ;
+//    Boolean startPointSelected = false;
+//
+//    public Boolean getStartPointSelected() {
+//        return startPointSelected;
+//    }
+//
+//    public void setStartPointSelected(Boolean startPointSelected) {
+//        this.startPointSelected = startPointSelected;
+//    }
+
     private GridMap gridMap;
     public static long exploreTimer;
     private Sensor mSensor;
@@ -73,7 +90,8 @@ public class ArenaActivity extends AppCompatActivity implements SensorEventListe
 
     boolean editMode = false;
 
-    @Override
+
+
     protected void onCreate(Bundle savedInstanceState) {
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -191,6 +209,32 @@ public class ArenaActivity extends AppCompatActivity implements SensorEventListe
                 updateXYAxis();
             }
         });
+
+        //        String init_direction = "Right";
+        directionSpinner = (Spinner) findViewById(R.id.directionSpinner);
+        directionSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                Toast.makeText(getApplicationContext(),String.format("Inital: %s",directions[position] ), Toast.LENGTH_LONG).show();
+                int dir ;
+                dir = DIRECTION_TYPE.valueOf(directions[position]).value;
+                gridMap.setInit_dir(dir);
+                gridMap.updateRobot();
+                if (gridMap.getRobotCoor()[1] == -1 & gridMap.getRobotCoor()[0] == -1){
+                    Toast.makeText(getApplicationContext(),"Please select START POINT", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                gridMap.invalidate();
+                gridMap.sendStartingPoint();
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         obstacleTB = findViewById(R.id.obstacleToggleButton);
         obstacleTB.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -367,6 +411,25 @@ public class ArenaActivity extends AppCompatActivity implements SensorEventListe
         }
     }
 
+    public enum DIRECTION_TYPE{
+        UP(0),
+        RIGHT(90),
+        DOWN(180),
+        LEFT(270);
+
+        private final int value;
+
+        DIRECTION_TYPE(int value) {
+            this.value = value;
+        }
+
+        public int getValue() {
+            return this.value;
+        }
+
+
+    }
+
     private void updateLog(String msg) {
         return;
 //        log += msg + "\n\n";
@@ -491,5 +554,7 @@ public class ArenaActivity extends AppCompatActivity implements SensorEventListe
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }
 

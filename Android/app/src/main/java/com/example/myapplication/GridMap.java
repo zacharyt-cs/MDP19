@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class GridMap extends View {
+
     private String TAG = "GRIDMAPLOGTAG";
     private final String FROMANDROID = "\"from\":\"Android\",";
 
@@ -28,6 +30,15 @@ public class GridMap extends View {
     private float gridSize;
     private Grid[][] grids;
     private int[] robotCoor = {-1, -1, -1};
+
+    public int[] getRobotCoor(){
+        return robotCoor;
+    }
+    public void setInit_dir(int init_dir) {
+        this.robotCoor[2] = init_dir;
+    }
+
+
     private int[] wayPointCoor = {-1, -1};
 
     private boolean resetMap = true;
@@ -46,6 +57,7 @@ public class GridMap extends View {
     private boolean allowSetObstacle = false;
     private boolean allowSetWaypoint = false;
     private boolean allowSetStartingPoint = false;
+//    private boolean allowChangeDirection = false;
 
     public GridMap(Context context) {
         super(context);
@@ -206,12 +218,12 @@ public class GridMap extends View {
 
     }
 
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             int col = getColIndex(event.getX()); //get the column index of the grid in 2d array (this will auto +1)
             int row = getRowIndex(event.getY()); //get the row index of the grid in 2d array
-
             Log.d("ontoucheventtag", "col:" + col);
             Log.d("ontoucheventtag", "row:" + row);
 
@@ -238,7 +250,7 @@ public class GridMap extends View {
                 }
                 robotCoor[0] = row;
                 robotCoor[1] = col;
-                robotCoor[2] = 90;
+//                robotCoor[2] = 90;
                 sendStartingPoint();
                 this.invalidate();
                 return true;
@@ -248,6 +260,7 @@ public class GridMap extends View {
                 this.invalidate();
                 return true;
             }
+
         }
         return false;
     }
@@ -399,13 +412,16 @@ public class GridMap extends View {
 
     }
 
-    private void updateRobot() {
+    protected void updateRobot() {
         for (int i : robotCoor) { //no robot = don't draw
             if (i < 0) {
                 return;
             }
         }
         int degree = robotCoor[2];
+//        String info = String.format("%d",degree);
+//        ToastUtil.showToast(this.context, String.format("%d",degree));
+
 
         int robotGrayArea = 0;
         switch (degree) {
@@ -428,7 +444,10 @@ public class GridMap extends View {
         if (this.checkOutOfBound(robotCoor[0], robotCoor[1])) {
             return;
         }
+
         for (int i = 0; i < 9; i++) {
+//            Log.d(TAG, String.format("robotGrayArea%d ",robotGrayArea));
+
             if ((1 << (i) & robotGrayArea) > 0) {
                 grids[robotStartRow + (i / 3)][robotStartCol + (i % 3)].setType(GRID_TYPE.ROBOT_SPACE);
             } else {
@@ -465,14 +484,18 @@ public class GridMap extends View {
     public void sendStartingPoint() {
         int x = robotCoor[1] - 1;
         int y = robotCoor[0];
+//        robotCoor[2] = init_dir;
 
         String msg = ";{" + FROMANDROID + "\"com\":\"startingPoint\",\"startingPoint\":[" + x + "," + getRowCoor(y) + "," + robotCoor[2] + "]}";
+//        ToastUtil.showToast(this.context, ":[" + x + "," + getRowCoor(y) + "," + robotCoor[2] + "]" );
+
         try {
             byte[] bytes = msg.getBytes();
             BluetoothConnectionService.write(bytes);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     public void sendWaypoint() {
