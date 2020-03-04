@@ -143,7 +143,6 @@ public class GridMap extends View {
                     String bitIndex = sb.toString();
                     bitIndex = String.format("%300s", bitIndex).replace(' ', '0');
                     for (int i = 0; i < bitIndex.length(); i++) {
-                        //int x = 19 - (i / 15);
                         int x = 19 - (i / 15);
                         int y = (i % 15) + 1;
 
@@ -549,7 +548,6 @@ public class GridMap extends View {
                 c += robotCoor[1];
                 boolean outOfBound = this.checkOutOfBound(r, c);
                 return !outOfBound;
-//            case TURNRIGHT:
         }
 
 //        this.invalidate();
