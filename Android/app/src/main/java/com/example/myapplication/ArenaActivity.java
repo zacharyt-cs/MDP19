@@ -137,10 +137,10 @@ public class ArenaActivity extends AppCompatActivity implements SensorEventListe
                     ToastUtil.showToast(getApplicationContext(), "Please exit edit mode");
                     return;
                 }
-                boolean okToSendCommand = gridMap.move(GridMap.MOVE_TYPE.BACK);
-                if (okToSendCommand) {
+//                boolean okToSendCommand = gridMap.move(GridMap.MOVE_TYPE.BACK);
+//                if (okToSendCommand) {
                     sendCommand(COMMAND_TYPE.BACK);
-                }
+//                }
                 updateXYAxis();
             }
         });
@@ -154,7 +154,7 @@ public class ArenaActivity extends AppCompatActivity implements SensorEventListe
                     return;
                 }
                 sendCommand(COMMAND_TYPE.TURNLEFT);
-                gridMap.move(GridMap.MOVE_TYPE.TURNLEFT);
+//                gridMap.move(GridMap.MOVE_TYPE.TURNLEFT);
                 updateXYAxis();
             }
         });
@@ -168,7 +168,7 @@ public class ArenaActivity extends AppCompatActivity implements SensorEventListe
                     return;
                 }
                 sendCommand(COMMAND_TYPE.TURNRIGHT);
-                gridMap.move(GridMap.MOVE_TYPE.TURNRIGHT);
+//                gridMap.move(GridMap.MOVE_TYPE.TURNRIGHT);
                 updateXYAxis();
             }
         });
@@ -500,27 +500,27 @@ public class ArenaActivity extends AppCompatActivity implements SensorEventListe
             }
             if (y < -2) {
                 boolean okToSendCommand = gridMap.move(GridMap.MOVE_TYPE.FORWARD);
-                if (okToSendCommand) {
+                    if (okToSendCommand) {
                     sendCommand(COMMAND_TYPE.FORWARD);
                 }
                 updateXYAxis();
             } else if (y > 2) {
-                boolean okToSendCommand = gridMap.move(GridMap.MOVE_TYPE.BACK);
-                if (okToSendCommand) {
+//                boolean okToSendCommand = gridMap.move(GridMap.MOVE_TYPE.BACK);
+//                if (okToSendCommand) {
                     sendCommand(COMMAND_TYPE.BACK);
-                }
+//                }
                 updateXYAxis();
             } else if (x > 2) {
-                boolean okToSendCommand = gridMap.move(GridMap.MOVE_TYPE.TURNLEFT);
-                if (okToSendCommand) {
+//                boolean okToSendCommand = gridMap.move(GridMap.MOVE_TYPE.TURNLEFT);
+//                if (okToSendCommand) {
                     sendCommand(COMMAND_TYPE.TURNLEFT);
-                }
+//                }
                 updateXYAxis();
             } else if (x < -2) {
-                boolean okToSendCommand = gridMap.move(GridMap.MOVE_TYPE.TURNRIGHT);
-                if (okToSendCommand) {
+//                boolean okToSendCommand = gridMap.move(GridMap.MOVE_TYPE.TURNRIGHT);
+//                if (okToSendCommand) {
                     sendCommand(COMMAND_TYPE.TURNRIGHT);
-                }
+//                }
                 updateXYAxis();
             }
         }
