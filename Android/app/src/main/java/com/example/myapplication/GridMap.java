@@ -144,7 +144,7 @@ public class GridMap extends View {
                     bitIndex = String.format("%300s", bitIndex).replace(' ', '0');
                     for (int i = 0; i < bitIndex.length(); i++) {
                         //int x = 19 - (i / 15);
-                        int x = (i / 15);
+                        int x = 19 - (i / 15);
                         int y = (i % 15) + 1;
 
                         if (bitIndex.toCharArray()[i] == '1') {
@@ -156,7 +156,7 @@ public class GridMap extends View {
                 if (mapState.get("explored") != null) {
                     this.exploredStr = mapState.get("explored").asText();
                     String bitIndex = new BigInteger(exploredStr, 16).toString(2);
-                    bitIndex = bitIndex.substring(2, bitIndex.length() - 2);
+                    bitIndex = bitIndex.substring(2, bitIndex.length() - 2);                            //remove padding
                     bitIndex = String.format("%300s", bitIndex).replace(' ', '0');
                     for (int i = 0; i < bitIndex.length(); i++) {
                         int x = 19 - (i / 15);
@@ -549,12 +549,7 @@ public class GridMap extends View {
                 c += robotCoor[1];
                 boolean outOfBound = this.checkOutOfBound(r, c);
                 return !outOfBound;
-//            case TURNLEFT:
-//                robotCoor[2] = (robotCoor[2] + 270) % 360;
-//                break;
 //            case TURNRIGHT:
-//                robotCoor[2] = (robotCoor[2] + 90) % 360;
-//                break;
         }
 
 //        this.invalidate();
