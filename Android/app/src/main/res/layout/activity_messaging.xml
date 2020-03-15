@@ -9,13 +9,15 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:id="@+id/sentTitle"
-            android:layout_width="260dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:height="37dp"
             android:fontFamily="casual"
             android:gravity="center"
@@ -23,45 +25,47 @@
             android:textColor="@color/darkblue"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.784"
-            app:layout_constraintStart_toEndOf="@+id/receivedTitle"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            app:layout_constraintEnd_toEndOf="@+id/sentTextView"
+            app:layout_constraintStart_toStartOf="@+id/sentTextView"
+            app:layout_constraintTop_toTopOf="@+id/receivedTitle" />
 
         <TextView
             android:id="@+id/receivedTextView"
-            android:layout_width="260dp"
-            android:layout_height="300dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/border"
             android:padding="5dp"
             android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/inputText"
+            app:layout_constraintEnd_toStartOf="@+id/verticalguide"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/receivedTitle" />
 
         <Button
             android:id="@+id/clearBtn"
             style="@android:style/Widget.Holo.Button.Inset"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/border"
             android:fontFamily="casual"
             android:text="Clear"
             android:textColor="@color/darkblue"
             android:textSize="14sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/reconfigBtn"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputText" />
+            app:layout_constraintTop_toBottomOf="@+id/sendBtn" />
 
         <Button
             android:id="@+id/f1"
-            android:layout_width="50dp"
+            android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/border"
             android:fontFamily="casual"
             android:text="F1"
@@ -73,57 +77,60 @@
 
         <Button
             android:id="@+id/f2Btn"
-            android:layout_width="50dp"
+            android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/border"
             android:fontFamily="casual"
             android:text="F2"
             android:textColor="@color/darkblue"
             android:textSize="14sp"
             android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/verticalguide"
             app:layout_constraintStart_toEndOf="@+id/f1"
-            app:layout_constraintTop_toBottomOf="@+id/inputText" />
+            app:layout_constraintTop_toTopOf="@+id/f1" />
 
         <Button
             android:id="@+id/sendBtn"
             style="@android:style/Widget.Holo.Button.Inset"
-            android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/border"
             android:fontFamily="casual"
             android:text="Send"
             android:textColor="@color/darkblue"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/clearBtn"
-            app:layout_constraintTop_toBottomOf="@+id/inputText" />
+            app:layout_constraintBottom_toBottomOf="@+id/f1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/verticalguide"
+            app:layout_constraintTop_toTopOf="@+id/f1"
+            app:layout_constraintVertical_bias="1.0" />
 
         <Button
             android:id="@+id/reconfigBtn"
             style="@android:style/Widget.Holo.Button.Inset"
-            android:layout_width="102dp"
+            android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/border"
             android:fontFamily="casual"
             android:text="Reconfigure"
             android:textColor="@color/darkblue"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/f2Btn"
-            app:layout_constraintTop_toBottomOf="@+id/inputText" />
+            app:layout_constraintEnd_toEndOf="@+id/f2Btn"
+            app:layout_constraintStart_toStartOf="@+id/f1"
+            app:layout_constraintTop_toBottomOf="@+id/f1" />
 
         <TextView
             android:id="@+id/receivedTitle"
-            android:layout_width="260dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:height="37dp"
             android:fontFamily="casual"
             android:gravity="center"
@@ -131,56 +138,71 @@
             android:textColor="@color/darkblue"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/receivedTextView"
+            app:layout_constraintStart_toStartOf="@+id/receivedTextView"
             app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-        <ImageButton
-            android:id="@+id/backBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="554dp"
-            android:backgroundTint="@android:color/transparent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.032"
-            app:layout_constraintStart_toStartOf="@+id/toolbar"
-            app:layout_constraintTop_toTopOf="@+id/toolbar"
-            app:srcCompat="@drawable/backbtn" />
 
         <EditText
             android:id="@+id/inputText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="Type your text here"
             android:shadowColor="@color/darkblue"
             android:textColor="@color/darkblue"
             android:textColorHighlight="@color/darkblue"
             android:textColorLink="@color/darkblue"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sentTextView"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="@+id/horizontalguide" />
 
         <TextView
             android:id="@+id/sentTextView"
-            android:layout_width="260dp"
-            android:layout_height="300dp"
-            android:layout_marginStart="84dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="20dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/border"
             android:padding="5dp"
             android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/inputText"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.906"
-            app:layout_constraintStart_toEndOf="@+id/receivedTextView"
+            app:layout_constraintStart_toStartOf="@+id/verticalguide"
             app:layout_constraintTop_toBottomOf="@+id/sentTitle" />
 
         <include
             android:id="@+id/toolbar"
-            layout="@layout/toolbar" />
+            layout="@layout/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontalguide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/verticalguide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_percent=".5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+            app:layout_constraintStart_toStartOf="@+id/toolbar"
+            app:layout_constraintTop_toTopOf="@+id/toolbar"
+            app:srcCompat="@drawable/backbtn" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </RelativeLayout>

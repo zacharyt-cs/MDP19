@@ -42,6 +42,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 
+import static java.lang.String.valueOf;
+
 public class ArenaActivity extends AppCompatActivity implements SensorEventListener {
     private String TAG = "ARENALOGTAG";
     private final String FROMANDROID = "\"from\":\"Android\",";
@@ -52,12 +54,12 @@ public class ArenaActivity extends AppCompatActivity implements SensorEventListe
     ImageButton backBtn, timerReset;
     ImageButton upButton, downButton, leftButton, rightButton;
     ToggleButton waypointTB, sPTB, obstacleTB, autoTB, startButton, exploreToggleButton;
-    Button clearButton, updateButton;
+    Button clearButton, updateButton, printMDFbutton;
     TextView time;
     TextView currentMode;
     Switch tiltSwitch;
     Spinner directionSpinner;
-    RobotDirection initDirection ;
+//    RobotDirection initDirection ;
 //    Boolean startPointSelected = false;
 //
 //    public Boolean getStartPointSelected() {
@@ -206,33 +208,38 @@ public class ArenaActivity extends AppCompatActivity implements SensorEventListe
                 waypointTB.setEnabled(!isChecked);
                 obstacleTB.setEnabled(!isChecked);
                 gridMap.setAllowSetStartingPoint(isChecked);
+                directionSpinner.setEnabled(isChecked);
                 updateXYAxis();
             }
         });
 
-        //        String init_direction = "Right";
         directionSpinner = (Spinner) findViewById(R.id.directionSpinner);
         directionSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(getApplicationContext(),String.format("Inital: %s",directions[position] ), Toast.LENGTH_LONG).show();
-                int dir ;
-                dir = DIRECTION_TYPE.valueOf(directions[position]).value;
-                gridMap.setInit_dir(dir);
-                gridMap.updateRobot();
-                if (gridMap.getRobotCoor()[1] == -1 & gridMap.getRobotCoor()[0] == -1){
-                    Toast.makeText(getApplicationContext(),"Please select START POINT", Toast.LENGTH_LONG).show();
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {       //listener will be called when arena is opened
+                if (gridMap.getRobotCoor()[2] == -1) {
+                    directionSpinner.setEnabled(false);
+                    int direction = DIRECTION_TYPE.valueOf(directions[position]).value;
+                    gridMap.setRobotStartDirection(direction);                                          //default direction is 90
                     return;
                 }
-                gridMap.invalidate();
-                gridMap.sendStartingPoint();
-
+                if (!gridMap.isAllowSetStartingPoint()) {
+                    directionSpinner.setEnabled(false);
+                    return;
+                }
+                else {
+                    int direction = DIRECTION_TYPE.valueOf(directions[position]).value;
+                    gridMap.setRobotStartDirection(direction);
+                    if (gridMap.getRobotCoor()[0] > 0 && gridMap.getRobotCoor()[1] > 0) {
+                        gridMap.updateRobot();          //update visually on grid
+                        gridMap.sendStartingPoint();
+                        gridMap.invalidate();
+                    }
+                    return;
+                }
             }
-
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
+            public void onNothingSelected(AdapterView<?> parent) { }
         });
 
         obstacleTB = findViewById(R.id.obstacleToggleButton);
@@ -297,6 +304,19 @@ public class ArenaActivity extends AppCompatActivity implements SensorEventListe
                 sendCommand(COMMAND_TYPE.CLEAR);
                 xAxisTextView.setText("0");
                 yAxisTextView.setText("0");
+            }
+        });
+
+        printMDFbutton = findViewById(R.id.printMDFbutton);
+        printMDFbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    if (GridMap.MDF1 != "" && GridMap.MDF2 != "") {
+                        String MDF = GridMap.MDF1 + "\n" + GridMap.MDF2 + "\n";
+                        String curText = robotStatus.getText().toString();
+                        robotStatus.setText(curText + MDF);
+                        scrollBottom(robotStatus);
+                    }
             }
         });
 

@@ -34,8 +34,9 @@ public class GridMap extends View {
     public int[] getRobotCoor(){
         return robotCoor;
     }
-    public void setInit_dir(int init_dir) {
-        this.robotCoor[2] = init_dir;
+
+    public void setRobotStartDirection(int direction) {
+        this.robotCoor[2] = direction;
     }
 
 
@@ -46,9 +47,6 @@ public class GridMap extends View {
     private String obstacleStr = "";
     private String exploredStr = "";
 
-    private int[] curCoor = {-1, -1};
-//    private int[] startCoor = {-1, -1};
-
     private ArrayList<int[]> imgList = new ArrayList<>();
     private String fastestPath = "";
     private boolean isAutoUpdate = true;
@@ -57,7 +55,9 @@ public class GridMap extends View {
     private boolean allowSetObstacle = false;
     private boolean allowSetWaypoint = false;
     private boolean allowSetStartingPoint = false;
-//    private boolean allowChangeDirection = false;
+
+    public static String MDF1 = "";
+    public static String MDF2 = "";
 
     public GridMap(Context context) {
         super(context);
@@ -136,6 +136,9 @@ public class GridMap extends View {
                 if (mapState.get("obstacles") != null && mapState.get("explored") != null) {
                     this.exploredStr = mapState.get("explored").asText();
                     this.obstacleStr = mapState.get("obstacles").asText();
+
+                    MDF1 = exploredStr;
+                    MDF2 = obstacleStr;
 
                     String eBitIndex = new BigInteger(exploredStr, 16).toString(2);
                     String oBitIndex = new BigInteger(obstacleStr, 16).toString(2);
@@ -249,7 +252,6 @@ public class GridMap extends View {
                 }
                 robotCoor[0] = row;
                 robotCoor[1] = col;
-//                robotCoor[2] = 90;
                 sendStartingPoint();
                 this.invalidate();
                 return true;
@@ -486,7 +488,7 @@ public class GridMap extends View {
 //        robotCoor[2] = init_dir;
 
         String msg = ";{" + FROMANDROID + "\"com\":\"startingPoint\",\"startingPoint\":[" + x + "," + getRowCoor(y) + "," + robotCoor[2] + "]}";
-//        ToastUtil.showToast(this.context, ":[" + x + "," + getRowCoor(y) + "," + robotCoor[2] + "]" );
+        ToastUtil.showToast(this.context, ":[" + x + "," + getRowCoor(y) + "," + robotCoor[2] + "]" );
 
         try {
             byte[] bytes = msg.getBytes();
@@ -539,7 +541,10 @@ public class GridMap extends View {
 
     public void clearMap() {
         this.resetMap = true;
-        for (int i = 0; i < robotCoor.length; i++) {
+//        for (int i = 0; i < robotCoor.length; i++) {
+//            robotCoor[i] = -1;
+//        }
+        for (int i = 0; i < robotCoor.length-1; i++) {
             robotCoor[i] = -1;
         }
         for (int i = 0; i < wayPointCoor.length; i++) {
