@@ -17,4 +17,6 @@ The Android app is able to:
 - Locate the repository and choose the "build.gradle" file in the root directory
 
 ##  :camera: Gallery
-(demo_images/main)
+[Main menu](demo_images/main.png)
+[Sending strings](demo_images/messages.png)
+[Arena](demo_images/arena.png)
