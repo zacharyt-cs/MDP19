@@ -14,7 +14,7 @@ The Android app is able to:
 
 ## :zap: Usage
 - In Android Studio, select **Open an Existing Android Studio Project**
-- Locate the repository and choose t he "build.gradle" file in the root directory
+- Locate the repository and choose the "build.gradle" file in the root directory
 
 ##  :camera: Gallery
-Images to be added
+(demo_images/main)
